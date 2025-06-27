@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>SECRET NGÀY 28/06</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+      <script type="text/javascript" src="canvas2image.js" ></script>
+      <link rel="stylesheet" href="index.css">
+   </head>
+   <body>
+      <!-- Header -->
+      <div class="header" id="header">
+         <div id="logo" class="me-auto">
+            <a href="index.html" class="scrollto"><img src="images/VP-logo-transparent.png" alt="" title=""></a>
+         </div>
+         <p>Tự chụp ảnh chính mình để thoả mãn sự xinh đẹp của bản thân!</p>
+         <p>Một web photobooth ( hơi phèn ) được đích thân em Hưng thiết kế </p>
+      </div>
+      <!-- Navigation Bar -->
+      <div class="navbar" style="height: 10px;">
+      </div>
+      <!-- The flexible grid (content) -->
+      <div class="row">
+        <div class="side guide">
+          <h2>Kính gửi lời chúc mừng sinh nhật đến chị Trịnh Ngọc Mai !!! </h2>
+          <h2>Hoặc là tmai em thấy tên insta của chị như thế</h2>
+          <p>Chúc mừng sinh nhật chị gái! 🎉</p>
+          <p>Chúc chị luôn vui vẻ, mạnh khỏe và gặp nhiều may mắn trong cuộc sống!</p>
+          <p>Chị là một người tuyệt vời, luôn mang lại niềm vui và hạnh phúc cho mọi người xung quanh.</p>
+          <p>Cảm ơn chị đã luôn là nguồn cảm hứng và động lực cho em.</p>
+          <p>Chúc chị có một ngày sinh nhật thật đặc biệt, đầy ắp niềm vui và những khoảnh khắc đáng nhớ bên gia đình và bạn bè.</p>
+          <p>Hãy luôn giữ nụ cười trên môi và tiếp tục tỏa sáng như một ngôi sao!</p>
+          <p>Chúc chị có một năm mới tràn đầy sức khỏe, hạnh phúc và thành công trong mọi lĩnh vực.</p>
+          <p>Chúc chị luôn được yêu thương và trân trọng bởi những người xung quanh.</p>
+          <p>Chúc chị có những chuyến đi thú vị, những trải nghiệm mới mẻ và những kỷ niệm đáng nhớ trong năm tới.</p>
+          <p>Hy vọng món quà nhỏ này sẽ khiến bạn mỉm cười hôm nay 💝</p>
+        </div>
+      </div>
+      
+        <div class="main">
+            <div class="row">
+               <div class="column">
+                  <h2 style="text-align: center">Chọn khung hình</h2>
+                  <div class="frame-preview">
+                    <img id="selected-frame" class="frame active" src="images/1.png" width="350" height="450" style="object-fit: contain;">
+                  </div>
+                  <div class="frame-selector">
+                    <button onclick="toggleFrame()">Đổi khung</button>
+                  </div>
+               </div>
+               <div class="column clickframe" >
+                  <h2>Chụp ảnh với khung</h2>
+                  <div class="framebg cardwp" id="card1">
+                     <div class="card-body">
+                        <video id="video" width="250" height="350" autoplay style="object-fit: cover;"></video>
+                     </div>
+                  </div>
+                  <button id="start-camera" style="display: none;">Start Camera</button>
+                  <button class="button" id="click-photo">Chụp ảnh</button>
+               </div>
+               <div class="column viewframe">
+                  <h2>Xem lại & tải ảnh</h2>
+                  <div id="bnophoto">
+                     <div class="card cardwop"  id="photoframe" crossorigin="anonymous">
+                        <div class="card-body">
+                           <canvas id="canvas" width="250" height="350"  class="galleryImage"></canvas>
+                        </div>
+                     </div>
+                     <div>
+                        <button class="button" id="take-shot" onclick="takeshot()">
+                        Tải ảnh về
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <p style="text-align: center;">
+              Trang web này là món quà sinh nhật nhỏ bé dành tặng riêng cho chị. Chúc chị một ngày thật đặc biệt và tràn ngập niềm vui!
+            </p>
+         </div>
+      
+      <!-- Footer -->
+      <div class="footer">
+         <h2>Bản quyền của Đặng Khải Hưng aka nhà vua trường Macquarie. Tặng chị gái ngày sinh nhật 🎂</h2>
+      </div>
+      <script type="text/javascript" src="index.js"></script>
+   </body>
+</html>
