@@ -1,85 +1,64 @@
-let camera_button = document.querySelector("#start-camera");
-let video = document.querySelector("#video");
-let click_button = document.querySelector("#click-photo");
-let canvas = document.querySelector("#canvas");
-var constraints = {
+let canvasSeg = document.getElementById("segmentation-canvas");
+let canvasCtx = canvasSeg && canvasSeg.getContext("2d");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const camera_button = document.querySelector("#start-camera");
+  const video = document.querySelector("#video");
+  const click_button = document.querySelector("#click-photo");
+  const canvas = document.querySelector("#canvas");
+
+  if (!camera_button || !video || !click_button || !canvas) {
+    console.warn("Thiếu phần tử DOM cần thiết.");
+    return;
+  }
+
+  const constraints = {
     audio: false,
     video: {
-        facingMode: 'user'
+      facingMode: 'user',
+      width: { exact: 320 },
+      height: { exact: 400 }
     }
-}
-video.setAttribute('autoplay', '');
-video.setAttribute('muted', '');
-video.setAttribute('playsinline', '')
+  };
 
-function takeshot() {
-  
-    let div =
-        document.getElementById('photoframe'); 
-     
-  
-    html2canvas(div,{ 
-        dpi: 144,
-        allowTaint: true
-      }).then(
-        
-        function (canvas) {
-            
-            return Canvas2Image.saveAsPNG(canvas);
-        })
-   
-}
-camera_button.addEventListener('click', async function() {
-   	let stream = await navigator.mediaDevices.getUserMedia(constraints);
-	  video.srcObject = stream;
-});
-camera_button.click();
-click_button.addEventListener('click', function() {
-   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-   	let image_data_url = canvas.toDataURL('image/jpeg', 1.0); 
-    //takeshot();
-   	// data url of the image
-   //	console.log(image_data_url);
-});
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
 
+  camera_button.addEventListener('click', async function () {
+    try {
+      let stream = await navigator.mediaDevices.getUserMedia(constraints);
+      video.srcObject = stream;
 
+      const updateCanvasSize = () => {
+        if (canvasSeg && video) {
+          canvasSeg.width = video.videoWidth;
+          canvasSeg.height = video.videoHeight;
+        }
+      };
+      video.addEventListener('loadedmetadata', updateCanvasSize);
+    } catch (error) {
+      console.error("Lỗi khi truy cập camera:", error);
+    }
+  });
 
-const items = document.querySelectorAll('img');
-const itemCount = items.length;
-let count = 0;
+  click_button.addEventListener('click', function () {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    let image_data_url = canvas.toDataURL('image/jpeg', 1.0);
+  });
 
-function showNextItem() {
-  items[count].classList.remove('active');
+  document.querySelectorAll('.frame').forEach(frame => {
+    frame.addEventListener('click', () => {
+      const imagePath = frame.getAttribute('src');
+      document.querySelectorAll('.framebg, .card').forEach(el => {
+        el.style.backgroundImage = `url(${imagePath})`;
+      });
+    });
+  });
 
-  if(count < itemCount - 1) {
-    count++;
-  } else {
-    count = 0;
-  }
-
-  items[count].classList.add('active');
-  console.log(count);
-}
-
-function showPreviousItem() {
-  items[count].classList.remove('active');
-
-  if(count > 0) {
-    count--;
-  } else {
-    count = itemCount - 1;
-  }
-
-  items[count].classList.add('active');
-  console.log(count);
-}
-
-$(document).ready(function(){
-    $('.frame').click(function(){
-        var imagePath = $(this).attr('src');
-        $('.framebg').css({"background-image": "url(" + imagePath + ")"});   
-        $('.card').css({"background-image": "url(" + imagePath + ")"});   
-       });
+  camera_button.click();
 });
 
 // Hàm chuyển đổi giữa hai khung hình

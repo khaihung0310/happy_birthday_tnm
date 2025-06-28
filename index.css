@@ -81,11 +81,6 @@ body {
   align-items: center;
 }
 /* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
 video {
   width: 250px;
   height: 350px;
@@ -93,15 +88,6 @@ video {
   display: block;
   margin: 0 auto;
   cursor: move;
-}
-.button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
 }
 #click-photo,
 #take-shot {
@@ -168,9 +154,6 @@ video {
 }
 .slider img.active {
   display: block;
-  -webkit-animation: fadeImg 0.8s;
-  -moz-animation: fadeImg 0.8s;
-  animation: fadeImg 0.8s;
 }
 .slider-nav .arrow { 
   flex: 0 0 15%; 
@@ -209,24 +192,6 @@ video {
 
 
 
-@-webkit-keyframes 
-fadeImg {  from {
- opacity: 0;
-}
-to { opacity: 1; }
-}
-@-moz-keyframes 
-fadeImg {  from {
- opacity: 0;
-}
-to { opacity: 1; }
-}
-@keyframes 
-fadeImg {  from {
- opacity: 0;
-}
-to { opacity: 1; }
-}
 .clickframe{
   text-align: center;
 }

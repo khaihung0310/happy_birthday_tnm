@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>SECRET NGÀY 28/06</title>
-      <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-      <link rel="manifest" href="/site.webmanifest">
-      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-      <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-      <script type="text/javascript" src="canvas2image.js" ></script>
-      <link rel="stylesheet" href="index.css">
-   </head>
+  <title>SECRET NGÀY 28/06</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script type="text/javascript" src="canvas2image.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
    <body>
       <!-- Header -->
       <div class="header" id="header">
@@ -46,20 +41,23 @@
       
         <div class="main">
             <div class="row">
-               <div class="column">
+               <div class="column" style="display: flex; flex-direction: column; align-items: center;">
                   <h2 style="text-align: center">Chọn khung hình</h2>
                   <div class="frame-preview">
-                    <img id="selected-frame" class="frame active" src="images/1.png" width="350" height="450" style="object-fit: contain;">
+                    <img id="selected-frame" class="frame active" src="images/1.png" width="320" height="400" style="object-fit: contain;">
                   </div>
-                  <div class="frame-selector">
+                  <div class="frame-selector" style="margin-top: 10px;">
                     <button onclick="toggleFrame()">Đổi khung</button>
                   </div>
                </div>
-               <div class="column clickframe" >
+            </div>
+
+            <div class="row" style="margin-top: 40px;">
+               <div class="column clickframe">
                   <h2>Chụp ảnh với khung</h2>
-                  <div class="framebg cardwp" id="card1">
-                     <div class="card-body">
-                        <video id="video" width="250" height="350" autoplay style="object-fit: cover;"></video>
+                  <div class="framebg cardwp" id="card1" style="width: 320px; height: 400px;">
+                     <div class="card-body" style="width: 320px; height: 400px;">
+                        <video id="video" width="320" height="400" autoplay style="object-fit: cover;"></video>
                      </div>
                   </div>
                   <button id="start-camera" style="display: none;">Start Camera</button>
@@ -68,9 +66,9 @@
                <div class="column viewframe">
                   <h2>Xem lại & tải ảnh</h2>
                   <div id="bnophoto">
-                     <div class="card cardwop"  id="photoframe" crossorigin="anonymous">
-                        <div class="card-body">
-                           <canvas id="canvas" width="250" height="350"  class="galleryImage"></canvas>
+                     <div class="card cardwop"  id="photoframe" crossorigin="anonymous" style="width: 320px; height: 400px;">
+                        <div class="card-body" style="width: 320px; height: 400px;">
+                           <canvas id="canvas" width="320" height="400"  class="galleryImage"></canvas>
                         </div>
                      </div>
                      <div>
