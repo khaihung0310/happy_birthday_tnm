@@ -1,6 +1,24 @@
 let canvasSeg = document.getElementById("segmentation-canvas");
 let canvasCtx = canvasSeg && canvasSeg.getContext("2d");
 
+function takeshot() {
+  
+    let div =
+        document.getElementById('photoframe'); 
+     
+  
+    html2canvas(div,{ 
+        dpi: 144,
+        allowTaint: true
+      }).then(
+        
+        function (canvas) {
+            
+            return Canvas2Image.saveAsPNG(canvas);
+        })
+   
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const camera_button = document.querySelector("#start-camera");
   const video = document.querySelector("#video");
